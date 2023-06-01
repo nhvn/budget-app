@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import AccountInfo
+from .models import ExpenseInfo
 
-class AccountInfoSerializer(serializers.ModelSerializer):
+class ExpenseInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = AccountInfo
+        model = ExpenseInfo
         fields = '__all__'

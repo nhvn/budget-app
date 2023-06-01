@@ -1,17 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 
-# AccountInfo model
-class AccountInfo(models.Model):
-    username = models.CharField(max_length=20)
-    password = models.CharField(max_length=20)
-    user_budget = models.IntegerField()
-
-    def clean(self):
-        # Custom validation: User budget cannot be negative
-        if self.user_budget < 0:
-            raise ValidationError("User budget cannot be negative.")
 
 # ExpenseInfo model
 class ExpenseInfo(models.Model):
@@ -21,7 +12,7 @@ class ExpenseInfo(models.Model):
     expense_category = models.CharField(max_length=20)
     expense_description = models.TextField()
     expense_location = models.CharField(max_length=100)
-    user = models.ForeignKey(AccountInfo, on_delete=models.CASCADE)  # ForeignKey relationship
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # ForeignKey relationship
 
     created_at = models.DateTimeField(default=timezone.now)  # Timestamps
     updated_at = models.DateTimeField(auto_now=True)  # Timestamps

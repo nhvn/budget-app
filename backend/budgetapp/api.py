@@ -1,7 +1,7 @@
 from rest_framework import generics
-from .models import AccountInfo
-from .serializers import AccountInfoSerializer
+from .models import ExpenseInfo
+from .serializers import ExpenseInfoSerializer
 
-class AccountInfoAPIView(generics.ListCreateAPIView):
-    queryset = AccountInfo.objects.all()
-    serializer_class = AccountInfoSerializer
+class ExpenseInfoAPIView(generics.ListCreateAPIView):
+    queryset = ExpenseInfo.objects.all()
+    serializer_class = ExpenseInfoSerializer
