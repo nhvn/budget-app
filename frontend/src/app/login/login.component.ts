@@ -5,14 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   username: string = '';
   password: string = '';
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   login() {
     if (this.username && this.password) {
@@ -22,3 +17,4 @@ export class LoginComponent implements OnInit {
     }
   }
 }
+
